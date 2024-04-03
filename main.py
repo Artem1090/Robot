@@ -1,8 +1,8 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QRadioButton, QLabel, QVBoxLayout, QMessageBox, QHBoxLayout, QPushButton, QGroupBox, QButtonGroup
 from random import *
-
-
+from redactor import app2, win2
+from labirint import *
 
 app = QApplication([])
 main_win = QWidget()
@@ -51,16 +51,12 @@ v_line.addWidget(RadioGroupBox)
 v_line.addLayout(h_line3)
 
 
-def show_answer():
-     RadioGroupBox.hide()
-def show_question():
-     RadioGroupBox.show()
-     button_group.setExclusive(False)
-     button1.setChecked(False)
-     button2.setChecked(False)
-     button3.setChecked(False)
-     button4.setChecked(False)
-     button_group.setExclusive(True)
+
+
+
+
+
+
 
 
 
@@ -70,7 +66,9 @@ question = []
 
 
 
-
+def redactor():
+    win2.show()
+    app2.exec_()
 
 
 
@@ -95,10 +93,24 @@ def next():
      
      q = question[main_win.current_question]
      #q = question[x]
-     
+    
+
+button4.clicked.connect(redactor) 
+button2.clicked.connect(labirint)
+
+
+
+
+
 
 
 
 
 main_win.show()
 app.exec_() 
+     
+
+
+
+
+ 
