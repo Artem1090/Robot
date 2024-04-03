@@ -63,10 +63,10 @@ class ImageProcessor:
 
 
 #  Создание  приложения
-app = QApplication([])
-win = QWidget()
-win.resize(700, 500)
-win.setWindowTitle('Easy Editor')
+app2 = QApplication([])
+win2 = QWidget()
+win2.resize(700, 500)
+win2.setWindowTitle('Easy Editor')
 # -------------------------------------
 # Создание виджетов
 # Кнопки
@@ -102,7 +102,7 @@ v_line2.addLayout(btns_line)
 main_line.addLayout(v_line1)
 main_line.addLayout(v_line2)
 
-win.setLayout(main_line)
+win2.setLayout(main_line)
 #----------------------------------------------------
 
 # Логика
@@ -153,6 +153,3 @@ cotur_btn.clicked.connect(workImage.cotur)
 
 
 
-#    Запуск приложения
-win.show()
-app.exec_()
