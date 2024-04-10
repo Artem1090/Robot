@@ -75,7 +75,7 @@ def labirint():
 
 
 
-    background = transform.scale(image.load('щд.webp'), (700, 500))
+    background = transform.scale(image.load('back.webp'), (700, 500))
 
 
 
