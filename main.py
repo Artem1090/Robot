@@ -108,9 +108,3 @@ button2.clicked.connect(labirint)
 
 main_win.show()
 app.exec_() 
-     
-
-
-
-
- 
