@@ -3,6 +3,8 @@ from PyQt5.QtWidgets import QApplication, QWidget, QRadioButton, QLabel, QVBoxLa
 from random import *
 from redactor import app2, win2
 from labirint import *
+from pinpong import *
+
 
 app = QApplication([])
 main_win = QWidget()
@@ -14,7 +16,7 @@ main_win.score = 0
 
 label1 = QLabel('Выбирите что хотите')
 RadioGroupBox = QGroupBox('Что можно сделать')
-button1 = QPushButton('шутер')
+button1 = QPushButton('пинпонг')
 button2 = QPushButton('лабиринт')
 button3 = QPushButton('опрос')
 button4 = QPushButton('Редактор картинки')
@@ -97,7 +99,7 @@ def next():
 
 button4.clicked.connect(redactor) 
 button2.clicked.connect(labirint)
-
+button1.clicked.connect(pinpong)
 
 
 
