@@ -75,7 +75,7 @@ def labirint():
 
 
 
-    background = transform.scale(image.load('back.webp'), (700, 500))
+    background = transform.scale(image.load('shd.webp'), (700, 500))
 
 
 
@@ -134,7 +134,7 @@ def labirint():
         
         
         for e in event.get():
-            if e. type == QUIT:
+            if e.type == QUIT:
                 game = False
 
         display.update() 
