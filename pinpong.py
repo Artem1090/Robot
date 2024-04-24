@@ -1,7 +1,9 @@
 def pinpong():
-    from pygame import sprite, image, transform, display, time, K_w, K_s, K_a, K_d, K_LSHIFT, Surface, mixer, event, QUIT, key, font, K_UP, K_DOWN, init 
+    from pygame import sprite, image, transform, display, time, K_w, K_s, K_a, K_d, K_LSHIFT, Surface, mixer, event, QUIT, key, font, K_UP, K_DOWN, KEYDOWN, K_SPACE
 
-
+    
+    score1 = int(0)
+    score2 = int(0)
     class GameSprite(sprite.Sprite):
         def __init__(self, player_image, player_x, player_y, player_speed):
             super().__init__()
@@ -41,6 +43,8 @@ def pinpong():
 
     class Enenemy(GameSprite):
         def update(self):
+            nonlocal score1
+            nonlocal score2
             if self.rect.y >= 450 or self.rect.y <= 0:
                 self.speedY *= -1
 
@@ -54,6 +58,18 @@ def pinpong():
             if sprite.collide_rect(gold, hero):
                 self.speedX *= -1
 
+
+            
+            if self.rect.x >= 650:
+                self.rect.x = 330
+                self.rect.y = 220
+                score1 += 1
+            if self.rect.x <= 0:
+                self.rect.x = 330
+                self.rect.y = 220
+                score2 += 1
+
+    
 
 
 
@@ -82,25 +98,31 @@ def pinpong():
 
     finish = False
     game = True
+    gamestart = False
+    gold.reset()
     while game:
         if finish != True:
             window.blit(background, (0, 0))
+            text = font2.render(str(score1) + ':' + str(score2), 1, (255, 255, 255))
+            window.blit(text,(10, 20))
             cyborg.update()
             hero.update()
-            gold.update()
             hero.reset()
             cyborg.reset()
-            gold.reset()
+            
+            if gamestart == True:
+                gold.update()
+                gold.reset()
         else:
             window.blit(lose, (50, 50))
-        if gold.rect.x >= 650 or gold.rect.x <= 0:
-            finish = True
-        
-        
         
         for e in event.get():
-            if e. type == QUIT:
+            if e.type == QUIT:
                 game = False
+            if e.type == KEYDOWN:
+                if e.key == K_SPACE:
+                    gamestart = True
+
 
         display.update() 
         clock.tick(60)
