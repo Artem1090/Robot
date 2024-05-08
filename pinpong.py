@@ -1,7 +1,15 @@
 def pinpong():
-    from pygame import sprite, image, transform, display, time, K_w, K_s, K_a, K_d, K_LSHIFT, Surface, mixer, event, QUIT, key, font, K_UP, K_DOWN, KEYDOWN, K_SPACE
-
+    # balans1 = int(input('Баланс первого игрока?'))
+    # balans2 = int(input('Баланс второго игрока?'))
+    # stavcka1 = int(input('Ставка первого игрока?'))
+    # stavcka2 = int(input('Ставка второго игрока?'))
+    # if balans1 - stavcka1 >= 0:
+    #     balans1 -= stavcka1
+    # if balans2 - stavcka2 >= 0:
+    #     balans2 -= stavcka2
+    # bank = stavcka1 + stavcka2
     
+    from pygame import sprite, image, transform, display, time, K_w, K_s, K_a, K_d, K_LSHIFT, Surface, mixer, event, QUIT, key, font, K_UP, K_DOWN, KEYDOWN, K_SPACE
     score1 = int(0)
     score2 = int(0)
     class GameSprite(sprite.Sprite):
@@ -113,8 +121,7 @@ def pinpong():
             if gamestart == True:
                 gold.update()
                 gold.reset()
-        else:
-            window.blit(lose, (50, 50))
+       
         
         for e in event.get():
             if e.type == QUIT:
@@ -123,7 +130,15 @@ def pinpong():
                 if e.key == K_SPACE:
                     gamestart = True
 
-
+        # if score1 == 10  or score2 == 10:
+        #     finish = True
+        #     window.blit(lose, (200, 200))
+        # if score1 == 10:
+        #     balans1 += bank
+        #     bank = 0
+        # if score2 == 10:
+        #     balans2 += bank
+        #     bank = 0
         display.update() 
         clock.tick(60)
     return
